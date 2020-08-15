@@ -1,0 +1,17 @@
+
+
+If you are using Gradle, execute:
+
+[subs="attributes"]
+----
+./gradlew build && java -jar build/libs/{project_id}-0.1.0.jar
+----
+
+If you are using Maven, execute:
+
+[subs="attributes"]
+----
+./mvnw package && java -jar target/{project_id}-0.1.0.jar
+----
+
+and go to http://localhost:8080[localhost:8080] to see your "Hello Docker World" message.
