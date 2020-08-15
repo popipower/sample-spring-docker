@@ -15,10 +15,9 @@ apply plugin: 'eclipse'
 apply plugin: 'idea'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
-apply plugin: 'com.palantir.docker'
-apply plugin: 'com.palantir.docker-run'
 
-group = 'springio'
+
+group = 'skp'
 
 bootJar {
     baseName = 'sample-spring-boot'
@@ -36,10 +35,4 @@ targetCompatibility = 1.8
 dependencies {
     compile("org.springframework.boot:spring-boot-starter-web") 
     testCompile("org.springframework.boot:spring-boot-starter-test")
-}
-String imageName = "popipower/sample-spring-docker:$version"
-docker {
-    name imageName
-    files "build/libs/${bootJar.archiveFileName.get()}"
-    buildArgs([JAR_FILE: bootJar.archiveFileName.get()])
 }
