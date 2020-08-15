@@ -15,6 +15,8 @@ apply plugin: 'eclipse'
 apply plugin: 'idea'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
+apply plugin: 'com.palantir.docker'
+apply plugin: 'com.palantir.docker-run'
 
 group = 'springio'
 
@@ -26,16 +28,7 @@ bootJar {
 repositories {
     mavenCentral()
 }
-plugins {
-    id 'com.palantir.docker' version '0.25.0'
-    id 'com.palantir.docker-run' version '0.25.0'
-	String imageName = "popipower/sample-spring-docker:$version"
-	docker {
-		name imageName
-		files "build/libs/${bootJar.archiveFileName.get()}"
-		buildArgs([JAR_FILE: bootJar.archiveFileName.get()])
-	}
-}
+
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
