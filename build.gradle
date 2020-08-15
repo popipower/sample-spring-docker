@@ -26,6 +26,10 @@ bootJar {
 repositories {
     mavenCentral()
 }
+plugins {
+    id 'com.palantir.docker' version '0.25.0'
+    id 'com.palantir.docker-run' version '0.25.0'
+}
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
