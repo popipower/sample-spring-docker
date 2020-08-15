@@ -38,4 +38,9 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-web") 
     testCompile("org.springframework.boot:spring-boot-starter-test")
 }
-
+String imageName = "popipower/sample-spring-docker:$version"
+docker {
+    name imageName
+    files "build/libs/${bootJar.archiveFileName.get()}"
+    buildArgs([JAR_FILE: bootJar.archiveFileName.get()])
+}
