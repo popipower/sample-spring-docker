@@ -29,6 +29,12 @@ repositories {
 plugins {
     id 'com.palantir.docker' version '0.25.0'
     id 'com.palantir.docker-run' version '0.25.0'
+	String imageName = "popipower/sample-spring-docker:$version"
+	docker {
+		name imageName
+		files "build/libs/${bootJar.archiveFileName.get()}"
+		buildArgs([JAR_FILE: bootJar.archiveFileName.get()])
+	}
 }
 
 sourceCompatibility = 1.8
